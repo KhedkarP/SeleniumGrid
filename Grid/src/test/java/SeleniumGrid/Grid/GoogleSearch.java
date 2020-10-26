@@ -24,6 +24,7 @@ public void Googlesearch() throws MalformedURLException {
 	driver.findElement(By.xpath("//a[@title='Go to Google Home']")).click();
 	String Title = driver.getTitle();
 	System.out.println("Title Is : TC1 : "+Title);
+	driver.quit();
 	
 	}
 
@@ -37,8 +38,8 @@ public void Googlesearch1() throws MalformedURLException {
 	driver.findElement(By.id("result-stats")).isDisplayed();
 	driver.findElement(By.xpath("//a[@title='Go to Google Home']")).click();
 	String Title = driver.getTitle();
-	System.out.println("Title Is : TC1 : "+Title);
-	
+	System.out.println("Title Is : TC2 : "+Title);
+	driver.quit();
 	}
 
 @Test
@@ -49,10 +50,22 @@ public void Googlesearch2() throws MalformedURLException {
 	WebDriver driver= new RemoteWebDriver(new URL("http://192.168.43.76:4444/wd/hub"),capabilities);
 	driver.get("https://www.google.com/");
 	driver.findElement(By.name("q")).sendKeys("Selenium Hub" + Keys.ENTER);
-	driver.findElement(By.id("result-stats")).isDisplayed();
-	driver.findElement(By.xpath("//a[@title='Go to Google Home']")).click();
 	String Title = driver.getTitle();
-	System.out.println("Title Is : TC1 : "+Title);
+	System.out.println("Title Is : TC3 : "+Title);
+	driver.quit();
+	
+	}
+@Test
+public void Googlesearch3() throws MalformedURLException {
+	DesiredCapabilities capabilities = new DesiredCapabilities();
+	capabilities.setBrowserName("firefox");
+	capabilities.setCapability("marionette", true);
+	WebDriver driver= new RemoteWebDriver(new URL("http://192.168.43.76:4444/wd/hub"),capabilities);
+	driver.get("https://www.google.com/");
+	driver.findElement(By.name("q")).sendKeys("Selenium Hub" + Keys.ENTER);
+	String Title = driver.getTitle();
+	System.out.println("Title Is : TC4 : "+Title);
+	driver.quit();
 	
 	}
 }
